@@ -10,6 +10,14 @@
 <body>
     <div id="container">
         <script type = "text/javascript">
+            function color(){
+                document.getElementById("container").style.backgroundColor = "black";
+                document.getElementById("container").style.color = "lightgray";
+            }
+            function goback(){
+                document.getElementById("container").style.backgroundColor = "lightgray";
+                document.getElementById("container").style.color = "black";
+            }
             var output = "*";
             document.write(output + "<br>");
             for(var i=0; i<12;i++){
@@ -22,6 +30,8 @@
                 document.write(output + "<br>");
             }
         </script>
+        <button onClick="color()">Change Color!</button>
+        <button onClick="goback()">Go back!</button>
     </div>
 </body>
 </html>
