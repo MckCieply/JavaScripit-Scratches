@@ -1,8 +1,14 @@
+html{
+    background-color: lightslategray;
+}
 #container{
     margin:auto;
     width:70%;
-    border-style: solid;
-    border-width: 0.5px;
-    border-color:black;
-    
+    border-radius: 20px;
+    text-align: center;
+    background-color: lightgray;
+    height: 96vh;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+    box-shadow: 0 0 4px 0px darkgrey;
 }
