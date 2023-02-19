@@ -33,15 +33,39 @@
 <body>
     <div id="container">
         <p id="box">Background Color: <span id="hashcolor">#d3d3d3</span></p>
-        <button id="btn" onClick="change()"> Change Color </button>
+        <button id="change" onClick="changecolor()"> Change Color </button>
+        <button id="theme" onClick="changetheme()"> Change Theme </button>
     </div>
     <script type="text/javascript">
-        const colors = ["#ffffff", "#e05780", "#ff7aa2", "#ff9ebb", "#ffc2d4"];
-        const btn = document.getElementById("btn");
         const color = document.querySelector("#hashcolor");
         const container = document.getElementById("container");
+        const box = document.getElementById("box");
+        const style = window.getComputedStyle(box).getPropertyValue("background-color");
+        var theme;
+        if (style == "rgb(185, 55, 94)"){ //#b9375e
+            theme = 1;
+            var colors = ["#ffffff", "#e05780", "#ff7aa2", "#ff9ebb", "#ffc2d4"];
+        }
+        if (style == "rgb(85, 6, 45)"){
+            theme = 2;
+            var colors = ["#f3dbea", "#cc9ab5", "#994d74", "#802754", "#660033"];
+            box.style.color = "#ffffff";
+        }
+        function changetheme(){
+            if (theme == 1){
+                theme = 2;
+                box.style.backgroundColor = "#55062d";
+                var colors = ["#f3dbea", "#cc9ab5", "#994d74", "#802754", "#660033"];
+                box.style.color = "#ffffff";
+            }
+            if (theme == 2){
+                theme = 1;
+                var colors = ["#ffffff", "#e05780", "#ff7aa2", "#ff9ebb", "#ffc2d4"];
+            }
+            return colors;
+        }
         var current = 1;
-        function change(){
+        function changecolor(){
             color.textContent = colors[current];
             container.style.backgroundColor = colors[current];
             if (current < colors.length){
