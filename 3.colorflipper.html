@@ -32,16 +32,17 @@
 </head>
 <body>
     <div id="container">
-        <p id="box">Background Color: <span id="hashcolor"></span></p>
+        <p id="box">Background Color: <span id="hashcolor">#d3d3d3</span></p>
         <button id="btn" onClick="change()"> Change Color </button>
     </div>
     <script type="text/javascript">
-        const colors = ["white", "#e05780", "#ff7aa2", "#ff9ebb", "#ffc2d4"];
+        const colors = ["#ffffff", "#e05780", "#ff7aa2", "#ff9ebb", "#ffc2d4"];
         const btn = document.getElementById("btn");
         const color = document.querySelector("#hashcolor");
         const container = document.getElementById("container");
         var current = 1;
         function change(){
+            color.textContent = colors[current];
             container.style.backgroundColor = colors[current];
             if (current < colors.length){
                 current += 1;
