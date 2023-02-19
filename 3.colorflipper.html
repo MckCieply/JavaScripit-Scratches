@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="basic.css">
+    <title>Flippy</title>
+    <style>
+        #box{
+            text-align: center;
+            padding:10px 5px;
+            border-radius: 10px;
+            font-size: xx-large;
+            font-weight: bold;
+            background-color: #b9375e;
+        }
+        html{
+            background-color: #ffe0e9;
+        }
+        button{
+            padding:5px 10px;
+            border-radius: 10px;
+            border-width: 3px;
+            border-color:#b9375e;
+            color:#b9375e;
+            font-weight: bolder;
+            font-size: large;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <p id="box">Background Color: <span id="hashcolor"></span></p>
+        <button id="btn" onClick="change()"> Change Color </button>
+    </div>
+    <script type="text/javascript">
+        const colors = ["white", "#e05780", "#ff7aa2", "#ff9ebb", "#ffc2d4"];
+        const btn = document.getElementById("btn");
+        const color = document.querySelector("#hashcolor");
+        const container = document.getElementById("container");
+        var current = 1;
+        function change(){
+            container.style.backgroundColor = colors[current];
+            if (current < colors.length){
+                current += 1;
+            }
+            if(current == colors.length){
+                current = 0;
+            }
+        }
+    </script>
+</body>
+</html>
