@@ -72,8 +72,27 @@
                     <td> = <span id="resultbox">  </span></td>
                 </tr>
             </table>
-            <button onClick="">Calculate</button>
+            <button onClick="calculate()">Calculate</button>
     </div>
-    
+    <script typ="text/javascript">
+        function calculate(){
+            var num1 = parseInt(document.getElementById("firstnum").value);
+            var num2 = parseInt(document.getElementById("secondnum").value);
+            if(document.getElementById("add").checked){
+                var output = num1 + num2;
+            }
+            else if(document.getElementById("sub").checked){
+                var output = num1 - num2;
+            }
+            else if(document.getElementById("mult").checked){
+                var output = num1 * num2;
+            }
+            else if(document.getElementById("div").checked){
+                var output = num1 / num2;
+            }
+            document.getElementById("resultbox").innerHTML = output;
+            document.getElementById("resultbox").style.fontSize = "x-large";
+        }
+    </script>
 </body>
 </html>
