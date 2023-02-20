@@ -7,12 +7,73 @@
     <title>Calculator</title>
     <link rel="stylesheet" href="basic.css">
     <style>
-
+        table{
+            margin:auto;
+            width:50%;
+        }
+        #firstnum, #secondnum{
+            padding:5px 10px;
+            border-radius: 10px;
+            border-style: none;
+            font-size: large;
+        }
+        .radio{
+            height: 15px;
+            width: 15px;
+        }
+        button{
+            margin: 10px 5px;
+            padding:5px 10px;
+            border-radius: 10px;
+            border-width: 3px;
+            border-color:blue;
+            color: blue;
+            font-weight: bolder;
+            font-size: large;
+            background-color: white;
+        }
+        button:hover{
+            margin: 10px 5px;
+            padding:5px 10px;
+            border-radius: 10px;
+            border-width: 3px;
+            border-color: darkblue;
+            color: darkblue;
+            font-weight: bolder;
+            font-size: large;
+            background-color: white;
+        }
+        td{
+            width:25%;
+            font-size: x-large;
+        }
     </style>
 </head>
 <body>
-    <script typ="text/javascript">
-        
-    </script>
+    <div id="container">    
+            <table>
+                <tr>
+                    <td>
+                        <input type="text" id="firstnum" placeholder="Number" maxlength="5" size="5">
+                    </td>
+                    <td>
+                        <input type="radio" id="add" name="operations" value="+" class="radio">
+                        <label for="add">+</label><br>
+                        <input type="radio" id="sub" name="operations" value="-" class="radio">
+                        <label for="sub">-</label><br>
+                        <input type="radio" id="mult" name="operations" value="*" class="radio">
+                        <label for="mult">*</label><br>
+                        <input type="radio" id="div" name="operations" value="/" class="radio">
+                        <label for="div">/</label><br>
+                    </td>
+                    <td>
+                        <input type="text" id="secondnum" placeholder="Number" maxlength="5" size="5">
+                    </td>
+                    <td> = <span id="resultbox">  </span></td>
+                </tr>
+            </table>
+            <button onClick="">Calculate</button>
+    </div>
+    
 </body>
 </html>
