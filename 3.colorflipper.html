@@ -56,14 +56,18 @@
             if (theme == 1){
                 theme = 2;
                 box.style.backgroundColor = "#55062d";
+                document.body.style.backgroundColor = "#f3dbea";
                 colors = ["#f3dbea", "#cc9ab5", "#994d74", "#802754", "#660033"];
                 box.style.color = "#ffffff";
+                color.textContent = colors[current];
             }
             else if(theme == 2){
                 box.style.backgroundColor = "#b9375e";
                 box.style.color = "#000000";
+                document.body.style.backgroundColor = "#ffe0e9";
                 theme = 1;
                 colors = ["#ffffff", "#e05780", "#ff7aa2", "#ff9ebb", "#ffc2d4"];
+                color.textContent = colors[current];
             }
         }
         var current = 1;
