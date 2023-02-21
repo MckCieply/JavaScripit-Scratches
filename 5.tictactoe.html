@@ -57,7 +57,20 @@
         </table>
     </div>
     <script type="text/javascript">
+        const cells = document.querySelectorAll('td');
+        for (var i = 0; i < cells.length; i++) {
+            cells[i].addEventListener('click', function(){ insert() });
+        }
 
+        var field = [['','','']
+                     ['','','']
+                     ['','','']];
+        var template = [['lt','ct','rt']
+                        ['lc','cc','rc']
+                        ['lb','cb','rb']];
+        function insert(){
+            alert(document.activeElement.tagName);
+        }
     </script>
 </body>
 </html>
