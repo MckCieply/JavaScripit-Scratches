@@ -32,6 +32,11 @@
         td{
             width: 33%;
             height: 33%;
+            cursor: pointer;
+        }
+        #winner{
+            font-size: xx-large;
+            font-weight: bolder;
         }
 
     </style>
@@ -40,24 +45,26 @@
     <div id="container">
         <table>
             <tr>
-                <td id="lt">1</td>
-                <td id="ct">2</td>
-                <td id="rt">3</td>
+                <td id="lt"></td>
+                <td id="ct"></td>
+                <td id="rt"></td>
             </tr>
             <tr>
-                <td id="lc">4</td>
-                <td id="cc">5</td>
-                <td id="rc">6</td>
+                <td id="lc"></td>
+                <td id="cc"></td>
+                <td id="rc"></td>
             </tr>
             <tr>
-                <td id="lb">7</td>
-                <td id="cb">8</td>
-                <td id="rb">9</td>
+                <td id="lb"></td>
+                <td id="cb"></td>
+                <td id="rb"></td>
             </tr>
         </table>
+        <span id="winner"></span>
     </div>
     <script type="text/javascript">
         var turn = "X";
+        var winner = null;
         const cells = document.querySelectorAll('td');
         const dict = {
             "lt": 0, "ct": 1, "rt": 2,
@@ -72,41 +79,41 @@
         for (var i = 0; i < cells.length; i++) {
             cells[i].addEventListener('click', insert, {once : true});
         }
-        function win(id, turn){
+        function iswon(id, turn){
             numMoves += 1;
             position = dict[id]
             canvas[position] = turn;
             //Horizontal Top
             if(canvas[0] == canvas[1] && canvas[1] == canvas[2] && (canvas[0] && canvas[1] && canvas[2])){
-                alert("WIN");
+                winner = canvas[1];
             }
             //Horizontal Middle
             if(canvas[3] == canvas[4] && canvas[4] == canvas[5] && (canvas[3] && canvas[4] && canvas[5])){
-                alert("WIN");
-        }
+                winner = canvas[3];
+            }
             //Horizontal Bottom
             if(canvas[6] == canvas[7] && canvas[7] == canvas[8] && (canvas[6] && canvas[7] && canvas[8])){
-                alert("WIN");
+                winner = canvas[6];
             }
             //Vertical Left
             if(canvas[0] == canvas[3] && canvas[3] == canvas[6] && (canvas[0] && canvas[3] && canvas[6])){
-                alert("WIN");
+                winner = canvas[0];
             }
             //Vertical Center
             if(canvas[1] == canvas[4] && canvas[4] == canvas[7] && (canvas[1] && canvas[4] && canvas[7])){
-                alert("WIN");
+                winner = canvas[1];
             }
             //Vertical Right
             if(canvas[2] == canvas[5] && canvas[5] == canvas[8] && (canvas[2] && canvas[5] && canvas[8])){
-                alert("WIN");
+                winner = canvas[2];
             }
             //Diagonal TopLeft-BottomRight
             if(canvas[0] == canvas[4] && canvas[4] == canvas[8] && (canvas[0] && canvas[4] && canvas[8])){
-                alert("WIN");
+                winner = canvas[0];
             }
             //Diagonal TopRight-BottomLeft
             if(canvas[2] == canvas[4] && canvas[4] == canvas[6] && (canvas[2] && canvas[4] && canvas[6])){
-                alert("WIN");
+                winner = canvas[2];
             }
             if(numMoves == 9){
                 alert("TIE");
@@ -114,10 +121,14 @@
         }
         function insert(){
             document.getElementById(this.id).innerHTML = turn;
-            win(this.id, turn);
+            //document.getElementById(this.id).style.backgroundColor = "gray";
+            document.getElementById(this.id).style.pointerEvents = "none";
+            iswon(this.id, turn);
+            if (winner != null)
+                document.getElementById("winner").innerHTML = (winner + " WON THE GAME");
             if (turn == "X")
                 turn = "O";
-            else if (turn == "O")
+            else if (turn == "O" && winner == null)
                 turn = "X";
         }
     </script>
