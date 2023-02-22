@@ -59,23 +59,28 @@
     <script type="text/javascript">
         var turn = "X";
         const cells = document.querySelectorAll('td');
+        const dict = {
+            "lt": 0, "ct": 1, "rt": 2,
+            "lc": 3, "cc": 4, "rc": 5,
+            "lb": 6, "cb": 7, "rb": 8,
+        };
+        template = [];
         for (var i = 0; i < cells.length; i++) {
             cells[i].addEventListener('click', insert, false);
         }
-        var field = [['','','']
-                     ['','','']
-                     ['','','']];
-        var template = [['lt','ct','rt']
-                        ['lc','cc','rc']
-                        ['lb','cb','rb']];
+        function win(id, turn){
+            position = dict[id]
+            template[position] = turn;
+            console.log(template);
+        }
         function insert(){
             document.getElementById(this.id).innerHTML = turn;
+            win(this.id, turn);
             if (turn == "X")
                 turn = "O";
             else if (turn == "O")
                 turn = "X";
         }
-
     </script>
 </body>
 </html>
