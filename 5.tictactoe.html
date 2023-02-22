@@ -57,6 +57,7 @@
         </table>
     </div>
     <script type="text/javascript">
+        var turn = "X";
         const cells = document.querySelectorAll('td');
         for (var i = 0; i < cells.length; i++) {
             cells[i].addEventListener('click', insert, false);
@@ -68,8 +69,13 @@
                         ['lc','cc','rc']
                         ['lb','cb','rb']];
         function insert(){
-            alert(this.id);
+            document.getElementById(this.id).innerHTML = turn;
+            if (turn == "X")
+                turn = "O";
+            else if (turn == "O")
+                turn = "X";
         }
+
     </script>
 </body>
 </html>
