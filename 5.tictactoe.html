@@ -59,9 +59,8 @@
     <script type="text/javascript">
         const cells = document.querySelectorAll('td');
         for (var i = 0; i < cells.length; i++) {
-            cells[i].addEventListener('click', function(){ insert() });
+            cells[i].addEventListener('click', insert, false);
         }
-
         var field = [['','','']
                      ['','','']
                      ['','','']];
@@ -69,7 +68,7 @@
                         ['lc','cc','rc']
                         ['lb','cb','rb']];
         function insert(){
-            alert(document.activeElement.tagName);
+            alert(this.id);
         }
     </script>
 </body>
