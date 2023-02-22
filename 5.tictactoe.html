@@ -64,14 +64,50 @@
             "lc": 3, "cc": 4, "rc": 5,
             "lb": 6, "cb": 7, "rb": 8,
         };
-        template = [];
+        numMoves = 0;
+        canvas = [];
+        // [0, 1, 2,
+        //  3, 4, 5,
+        //  6, 7, 8 ]
         for (var i = 0; i < cells.length; i++) {
             cells[i].addEventListener('click', insert, false);
         }
         function win(id, turn){
+            numMoves += 1;
             position = dict[id]
-            template[position] = turn;
-            console.log(template);
+            canvas[position] = turn;
+            //Horizontal Top
+            if(canvas[0] == canvas[1] && canvas[1] == canvas[2] && (canvas[0] && canvas[1] && canvas[2])){
+                alert("WIN");
+            }
+            //Horizontal Middle
+            if(canvas[3] == canvas[4] && canvas[4] == canvas[5] && (canvas[3] && canvas[4] && canvas[5])){
+                alert("WIN");
+        }
+            //Horizontal Bottom
+            if(canvas[6] == canvas[7] && canvas[7] == canvas[8] && (canvas[6] && canvas[7] && canvas[8])){
+                alert("WIN");
+            }
+            //Vertical Left
+            if(canvas[0] == canvas[3] && canvas[3] == canvas[6] && (canvas[0] && canvas[3] && canvas[6])){
+                alert("WIN");
+            }
+            //Vertical Center
+            if(canvas[1] == canvas[4] && canvas[4] == canvas[7] && (canvas[1] && canvas[4] && canvas[7])){
+                alert("WIN");
+            }
+            //Vertical Right
+            if(canvas[2] == canvas[5] && canvas[5] == canvas[8] && (canvas[2] && canvas[5] && canvas[8])){
+                alert("WIN");
+            }
+            //Diagonal TopLeft-BottomRight
+            if(canvas[0] == canvas[4] && canvas[4] == canvas[8] && (canvas[0] && canvas[4] && canvas[8])){
+                alert("WIN");
+            }
+            //Diagonal TopRight-BottomLeft
+            if(canvas[2] == canvas[4] && canvas[4] == canvas[6] && (canvas[2] && canvas[4] && canvas[6])){
+                alert("WIN");
+            }
         }
         function insert(){
             document.getElementById(this.id).innerHTML = turn;
