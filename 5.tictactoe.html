@@ -10,8 +10,11 @@
         table{
             margin:auto;
             font-size: xx-large;
-            width: 75%;
-            height: 75%;
+            width: 70%;
+            height: 70%;
+        }
+        h1{
+            font-size: 30px;
         }
         #ct, #cb{
             border-left-style: solid;
@@ -38,11 +41,24 @@
             font-size: xx-large;
             font-weight: bolder;
         }
+        #restart{
+            padding:5px 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: large;
+            background-color: rgb(0, 191, 255);
+            visibility: hidden;
+            cursor: pointer;
+        }
+        #restart:hover{
+            background-color: rgb(0, 136, 255);
+        }
 
     </style>
 </head>
 <body>
     <div id="container">
+        <h1> Tic Tac Toe</h1>
         <table>
             <tr>
                 <td id="lt"></td>
@@ -60,7 +76,8 @@
                 <td id="rb"></td>
             </tr>
         </table>
-        <span id="winner"></span>
+        <span id="winner"></span><br>
+        <button id="restart" onClick="window.location.reload()">Restart</button>
     </div>
     <script type="text/javascript">
         var turn = "X";
@@ -116,7 +133,8 @@
                 winner = canvas[2];
             }
             if(numMoves == 9){
-                alert("TIE");
+                document.getElementById("winner").innerHTML = (" TIE! ");
+                document.getElementById("restart").style.visibility = "visible";
             }
         }
         function insert(){
@@ -126,6 +144,7 @@
             iswon(this.id, turn);
             if (winner != null)
                 document.getElementById("winner").innerHTML = (winner + " WON THE GAME");
+                document.getElementById("restart").style.visibility = "visible";
             if (turn == "X")
                 turn = "O";
             else if (turn == "O" && winner == null)
