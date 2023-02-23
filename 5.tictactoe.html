@@ -132,6 +132,7 @@
             if(canvas[2] == canvas[4] && canvas[4] == canvas[6] && (canvas[2] && canvas[4] && canvas[6])){
                 winner = canvas[2];
             }
+            // Check if TIE
             if(numMoves == 9){
                 document.getElementById("winner").innerHTML = (" TIE! ");
                 document.getElementById("restart").style.visibility = "visible";
@@ -142,9 +143,11 @@
             //document.getElementById(this.id).style.backgroundColor = "gray";
             document.getElementById(this.id).style.pointerEvents = "none";
             iswon(this.id, turn);
-            if (winner != null)
+            //Check for winner
+            if (winner != null){
                 document.getElementById("winner").innerHTML = (winner + " WON THE GAME");
                 document.getElementById("restart").style.visibility = "visible";
+            }
             if (turn == "X")
                 turn = "O";
             else if (turn == "O" && winner == null)
