@@ -101,6 +101,9 @@
         function check(td1, td2, td3, formation){
             if(winner == null){
                 if(td1 == td2 && td2 == td3 && (td1 && td2 && td3)){
+                    elements = document.getElementsByClassName(formation);
+                    for(var element of elements)  
+                        element.style.backgroundColor = "limegreen";
                     return turn
                 }
                 else
