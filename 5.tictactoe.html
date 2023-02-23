@@ -8,10 +8,11 @@
     <title>TicTacToe</title>
     <style>
         table{
+            padding-top:5%;
             margin:auto;
             font-size: 50px;
-            width: 70%;
-            height: 70%;
+            width: 65%;
+            height: 65%;
         }
         h1{
             font-size: 30px;
@@ -55,12 +56,50 @@
         #restart:hover{
             background-color: rgb(0, 136, 255);
         }
-
+        #leaderboard{
+            height:20%;
+        }
+        #teamX, #teamO{
+            margin:0 5%;
+            background-color:black;
+            color: white;
+            border-radius: 20px;
+            height: 100%;
+        }
+        #teamX{
+            width: 25%;
+            float:left;
+        }
+        #teamO{
+            width: 25%;
+            float:right;
+        }
+        #vs{
+            margin-top:5%;
+            width: 30%;
+            float: left;
+        }
+        #vs, #teamX, #teamO{
+            text-align: center;
+            font-size: 70px;
+        }
+        #leaderboard > div > span{
+            font-size: 100px;
+        }
     </style>
 </head>
 <body>
     <div id="container">
         <h1> Tic Tac Toe</h1>
+        <div id="leaderboard">
+            <div id="teamX">TEAM X <br>
+                <span id="Xscore">0</span>
+            </div>           
+            <span id="vs"> VS </span>
+            <div id="teamO">TEAM O <br>
+                <span id="Oscore">0</span>
+            </div>
+        </div>
         <table cellspacing="0">
             <tr>
                 <td id="lt" class="HTop VLeft Diag1"></td>
