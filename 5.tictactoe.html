@@ -9,7 +9,7 @@
     <style>
         table{
             margin:auto;
-            font-size: xx-large;
+            font-size: 50px;
             width: 70%;
             height: 70%;
         }
@@ -18,19 +18,19 @@
         }
         #ct, #cb{
             border-left-style: solid;
-            border-left-width: 0.5px;
+            border-left-width: 3px;
             border-right-style: solid;
-            border-right-width: 0.5px;
+            border-right-width: 3px;
         }
         #lc, #rc{
             border-top-style: solid;
-            border-top-width: 0.5px;
+            border-top-width: 3px;
             border-bottom-style: solid;
-            border-bottom-width: 0.5px;
+            border-bottom-width: 3px;
         }
         #cc{
             border-style:solid;
-            border-width:0.5px;
+            border-width:3px;
         }
         td{
             width: 33%;
@@ -38,11 +38,13 @@
             cursor: pointer;
         }
         #winner{
+            margin:5px;
             font-size: xx-large;
             font-weight: bolder;
         }
         #restart{
             padding:5px 10px;
+            margin-top:5px;
             border: none;
             border-radius: 10px;
             font-size: large;
@@ -59,7 +61,7 @@
 <body>
     <div id="container">
         <h1> Tic Tac Toe</h1>
-        <table>
+        <table cellspacing="0">
             <tr>
                 <td id="lt"></td>
                 <td id="ct"></td>
